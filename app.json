@@ -14,8 +14,8 @@
     "ios": {
       "supportsTablet": true,
       "infoPlist": {
-        "NSPhotoLibraryUsageDescription": "Este aplicativo precisa acessar sua galeria de fotos.",
-        "NSContactsUsageDescription": "Este aplicativo precisa acessar seus contatos."
+        "NSPhotoLibraryUsageDescription": "Este aplicativo precisa de acesso à galeria para selecionar imagens.",
+        "NSContactsUsageDescription": "Este aplicativo precisa de acesso aos contatos do seu dispositivo."
       }
     },
     "android": {
@@ -24,14 +24,23 @@
         "backgroundColor": "#ffffff"
       },
       "permissions": [
-        "READ_CONTACTS",
-        "WRITE_CONTACTS",
-        "READ_EXTERNAL_STORAGE",
-        "WRITE_EXTERNAL_STORAGE"
+        "READ_MEDIA_IMAGES",
+        "READ_CONTACTS"
       ]
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    }
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "O aplicativo necessita de acesso às suas fotos."
+        }
+      ],
+      [
+        "expo-contacts",
+        {
+          "contactsPermission": "O aplicativo necessita de acesso aos seus contatos."
+        }
+      ]
+    ]
   }
 }
