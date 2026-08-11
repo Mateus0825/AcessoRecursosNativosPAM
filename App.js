@@ -1,35 +1,34 @@
-// App.js
-
-// Importa as bibliotecas necessárias
 import React from 'react';
-import { SafeAreaView, ScrollView, StyleSheet } from 'react-native';
+import { StyleSheet, Text, SafeAreaView, ScrollView } from 'react-native';
 import ImagePickerComponent from './src/components/ImagePickerComponent';
 import ContactsComponent from './src/components/ContactsComponent';
 
-// Define o componente principal do aplicativo
-const App = () => {
+export default function App() {
   return (
-    // SafeAreaView para garantir que o conteúdo não ultrapasse áreas seguras do dispositivo
-    <SafeAreaView style={styles.container}>
-      {/* ScrollView para permitir rolagem caso o conteúdo exceda a tela */}
-      <ScrollView>
-        {/* Renderiza o componente de seleção de imagem */}
+    <SafeAreaView style={styles.safeArea}>
+      <ScrollView contentContainerStyle={styles.container}>
+        <Text style={styles.headerTitle}>Recursos Nativos do Dispositivo</Text>
+        
         <ImagePickerComponent />
-
-        {/* Renderiza o componente de contatos */}
         <ContactsComponent />
       </ScrollView>
     </SafeAreaView>
   );
-};
+}
 
-// Define os estilos utilizados no aplicativo principal
 const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: '#f5f5f5',
+  },
   container: {
-    flex: 1, // Ocupa todo o espaço disponível
-    backgroundColor: '#f0f0f0', // Cor de fundo cinza claro
+    padding: 20,
+    alignItems: 'center',
+  },
+  headerTitle: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    marginVertical: 15,
+    textAlign: 'center',
   },
 });
-
-// Exporta o componente principal
-export default App;
